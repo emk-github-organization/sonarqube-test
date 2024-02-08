@@ -1,38 +1,11 @@
-pipeline {
-   agent any
-    
-    stages {
-       
-         stage('BUILD') {
-            steps {
-               sh 'pytest -v'
-       
-            }
-        }
-        
-     
-        
-         stage('DEPLOY') {
-            steps {
-                echo 'Deploying...'
-            }
-         }
-        
-        
-        stage('slack notification sent'){
-           steps{
-               echo ' sending slack notification....'
-               echo 'Slack notification sent'
-               
-           }
-         }
-        
+node {
+  stage('SCM') {
+    checkout scm
+  }
+  stage('SonarQube Analysis') {
+    def scannerHome = tool 'sonar-scanner';
+    withSonarQubeEnv() {
+      sh "${scannerHome}/bin/sonar-scanner"
     }
-    
-       post('slack notificion sent'){
-            always{
-               cleanWs()
-            }
-        }
-    
+  }
 }
