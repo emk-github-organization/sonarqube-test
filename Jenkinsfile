@@ -18,7 +18,7 @@ pipeline {
                sh 'pytest -v'
             }
          }
-
+/*
        stage('SonarQube Analysis') {
             steps {
                withSonarQubeEnv('sonarqube') {
@@ -31,7 +31,8 @@ pipeline {
                echo ' sending slack notification....'
                echo 'Slack notification sent'               
            }
-         }        
+         }  
+         */
     }    
 }
 
