@@ -3,7 +3,7 @@ pipeline {
        label "docker-agent-python"
   }
   tools{
-   sonar-scanner 'sonar-scanner'
+    'sonar-scanner'
   }      
     
     stages {       
