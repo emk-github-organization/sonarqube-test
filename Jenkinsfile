@@ -30,7 +30,7 @@ pipeline {
 
 node {
   stage('SCM') {
-    checkout scm
+    git 'https://github.com/emk-github-organization/sonarqube-test.git'
   }
   stage('SonarQube Analysis') {
     def scannerHome = tool 'sonar-scanner';
