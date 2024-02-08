@@ -1,5 +1,5 @@
 
-node {
+node ("docker-agent-python") {
   stage('SCM') {
     git branch: 'main', url: ' https://github.com/emk-github-organization/sonarqube-test.git'
   }
