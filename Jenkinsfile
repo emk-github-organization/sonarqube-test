@@ -3,7 +3,7 @@ pipeline {
        label "docker-agent-python"
   }
   tools{
-    'sonar-scanner'
+    sonar-scanner 'sonar-scanner'
   }      
     
     stages {       
@@ -18,21 +18,22 @@ pipeline {
                sh 'pytest -v'
             }
          }
-/*
+
        stage('SonarQube Analysis') {
             steps {
+            
                withSonarQubeEnv('sonarqube') {
                  sh "${scannerHome}/bin/sonar-scanner"
             }
          }
-                
+       }       
         stage('slack notification sent'){
            steps{
                echo ' sending slack notification....'
                echo 'Slack notification sent'               
            }
          }  
-         */
+         
     }    
 }
 
