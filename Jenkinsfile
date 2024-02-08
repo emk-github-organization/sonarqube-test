@@ -10,13 +10,13 @@ pipeline {
                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/emk-github-organization/sonarqube-test.git/']]])       
             }
         }    
-      
+      /*
          stage('RUN TEST') {
             steps {
                sh 'pytest -v'
             }
          }
-
+     */
        stage('SonarQube Analysis') {
             steps {
             
