@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CHECKOUT') {
             steps {
-                echo ' checking out'
+               checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/emk-github-organization/sonarqube-test.git']]])
             }
         }
 
